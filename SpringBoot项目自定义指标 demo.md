@@ -281,9 +281,11 @@ public class MonitorAspect {
 curl -i -X GET \
  'http://localhost:8080/actuator/prometheus'
 ```
-返回的结果中应该如下。
+返回的结果中应该如下,
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/7.png)
 
 可以看到，计数器类型的指标在我们设定的名称后面附加了total，HELP行展示了指标的描述信息，TYPE行给出了指标的类型，每一行给出了指标在不同tag的当前值。
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/8.png)
 
 除了订单处理总耗时指标order_process_duration_seconds_sum之外，micrometer还额外生成了order_process_duration_seconds_count、order_process_duration_seconds_max两个指标，分别表示具体平台对应的订单总数、处理订单最大时长。
 # 5.grafan查询自定义指标
