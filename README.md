@@ -4,3 +4,4 @@
 ## [SpringBoot项目自定义指标 demo](https://github.com/liyy20/Prometheus-Note/blob/main/SpringBoot%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E6%A0%87%20demo.md)
 ## [应用指标收集原理介绍](https://github.com/liyy20/Prometheus-Note/blob/main/%E5%BA%94%E7%94%A8%E6%8C%87%E6%A0%87%E6%94%B6%E9%9B%86%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D.md)
 ## [springboot支持histogram类型的request指标](https://github.com/liyy20/Prometheus-Note/blob/main/springboot%E6%94%AF%E6%8C%81histogram%E7%B1%BB%E5%9E%8B%E7%9A%84request%E6%8C%87%E6%A0%87.md)
+## [常用pronetheus规则表达式](https://github.com/liyy20/Prometheus-Note/blob/main/%E5%B8%B8%E7%94%A8prometheus%E8%A7%84%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%20demo.md)
