@@ -247,12 +247,12 @@ public class MonitorAspect {
     }
 
     /**
-     * 在com.huice.tc.demo.monitor.OrderService.processOrder(..)方法处给指标打点
+     * 在com.xxx.tc.demo.monitor.OrderService.processOrder(..)方法处给指标打点
      * @param point 切点
      * @return 返回值
      * @throws Throwable 异常
      */
-    @Around(value = "execution (* com.huice.tc.demo.monitor.OrderService.processOrder(..))")
+    @Around(value = "execution (* com.xxx.tc.demo.monitor.OrderService.processOrder(..))")
     public Object increaseCounter(ProceedingJoinPoint point) throws Throwable {
 
         String platform = (String) (point.getArgs())[0];
@@ -276,7 +276,7 @@ public class MonitorAspect {
 ```
 
 # 4. metrics测试
-这里我们可以通过向接口orderHandler发送请求模拟订单操作，比如platform取jingdong、taobao，shop取huice、shop_of_houlibin。发送若干次模拟请求后，在本地开发环境下发送如下请求查看暴露的监控指标
+这里我们可以通过向接口orderHandler发送请求模拟订单操作，比如platform取jingdong、taobao，shop取xxx、shop_of_houlibin。发送若干次模拟请求后，在本地开发环境下发送如下请求查看暴露的监控指标
 ```Bash
 curl -i -X GET \
  'http://localhost:8080/actuator/prometheus'
