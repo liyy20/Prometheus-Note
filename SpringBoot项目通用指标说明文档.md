@@ -25,9 +25,11 @@ http_server_requests_seconds_sum: |http所有请求总耗时，单位为秒，�
 http_server_requests_seconds_max: |在时间窗口内的耗时最长请求的持续时间，单位为秒，仪表盘类型。当新的时间窗口开始时，该值将重置为0，默认时间窗口为2分钟。
 http_server_requests_seconds: |http请求耗时时长分布，单位为秒，Summary类型。
 
-上述四个指标中重要的标签有uri、method、status、exception，分别对应HTTP请求接口路径、方法、状态码、抛出的异常类名称。通过uri标签可以明确具体接口的请求总数、所有请求的总耗时、在时间窗口内该接口请求最长耗时，如图1所示。
+上述四个指标中重要的标签有uri、method、status、exception，分别对应HTTP请求接口路径、方法、状态码、抛出的异常类名称。通过uri标签可以明确具体接口的请求总数、所有请求的总耗时、在时间窗口内该接口请求最长耗时，如下图所示。
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img5.png)
 
-通过指标http_server_requests_seconds分位数标签quantile我们可以进一步知道在一段时间内耗时在前50%、前90%、前95%、前99%的请求时长变化曲线，如图2所示
+通过指标http_server_requests_seconds分位数标签quantile我们可以进一步知道在一段时间内耗时在前50%、前90%、前95%、前99%的请求时长变化曲线，如下图所示
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img6.png)
 
 ## 2.2 JVM相关指标
 SpringBoot中提供的JVM指标分为三类：JVM 内存、JVM GC、JVM 线程，分别提供了SpringBoot应用JVM内存使用情况、GC状态、线程状态的监控信息。
