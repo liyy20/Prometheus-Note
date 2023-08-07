@@ -23,7 +23,8 @@ prometheus端点暴露了被Prometheus服务器抓取的指标数据
 注：无特别需求，不需要增加版本号。
 修改项目配置文件application.yaml
 暴露metric地址给prometheus（必选）
-在management.endpoints.web.exposure.include 配置项中加入prometheus, metrics两项(其他include选项自己决定是否添加）。prometheus endpoints
+在management.endpoints.web.exposure.include 配置项中加入prometheus, metrics两项(其他include选项自己决定是否添加）。
+[prometheus endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.export.prometheus)
 yaml格式示例如下
 ```YMAL
 management:
@@ -64,7 +65,7 @@ management:
       application: ${spring.application.name}
 ```
  添加自定义指标（可选）
-参考自定义指标
+参考[自定义指标](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.registering-custom)
 检查指标是否暴露成功
 启动SpringBoot服务（默认服务端口是9090），在终端中输入以下命令查看应用暴露的监控指标：
 A 聚石塔容器内
@@ -73,7 +74,7 @@ prometheus metric格式：
 curl -i -X GET  'http://localhost:9090/actuator/prometheus'
 ```
 返回如下图所示
-![](https://github.com/liyy20/Prometheus-Note/blob/main/img/image.png)
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img2.png)
 所有metric名称：
 ```Bash
 curl -i -X GET  'http://localhost:9090/actuator/metrics'
@@ -90,18 +91,27 @@ curl -i -X GET  'http://localhost:8080/actuator/prometheus'
 curl -i -X GET  'http://localhost:8080/actuator/metrics'
 ```
 # 三、常用组件的监控
-1. open feign客户端
-请按照技术中台的规范映入open feign相关依赖，在上述监控配置的基础上，额外映入如下依赖包即可
+## 1. open feign客户端
+引入open feign相关依赖，在上述监控配置的基础上，额外引入如下依赖包即可
 相关指标请见grafana, Java App文件夹下的web指标，出站请求（open feign客户端）
-2. dynamic tp动态线程池
+```xml
+<dependency>
+    <groupId>io.github.openfeign</groupId>
+    <artifactId>feign-micrometer</artifactId>
+</dependency>
+```
+## 2. dynamic tp动态线程池
 这里无需引入额外的配置和依赖，按照官方文档在pom文件中加入下面的依赖后直接可使用dynamic tp，监控指标自动暴露
-四、grafana监控大盘的使用
-各云的监控大盘地址
-A. 掌上先机聚石塔(jst ERP)监控
-B. 腾讯云监控
-C. 跨境聚石塔
+```xml
+<dependency>
+    <groupId>cn.dynamictp</groupId>
+    <artifactId>dynamic-tp-spring-boot-starter-nacos</artifactId>
+    <version>1.0.9</version>
+</dependency>
+```
+# 四、grafana监控大盘的使用
 指标查询
-进入grafana https://grafana.huice.com
+进入grafana https://grafana.xxx.com
 选择 ·explore·
 选择数据源 `thanos`
 输入指标 ·topk(10,tomcat_connections_current_connections) ·， 查看结果：
