@@ -73,13 +73,13 @@ prometheus metric格式：
 curl -i -X GET  'http://localhost:9090/actuator/prometheus'
 ```
 返回如下图所示
-
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/image.png)
 所有metric名称：
 ```Bash
 curl -i -X GET  'http://localhost:9090/actuator/metrics'
 ```
 返回如下图所示
-
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img1.png)
 B 本地开发环境
 prometheus metric格式：
 ```Bash
