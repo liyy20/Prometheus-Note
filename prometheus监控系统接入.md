@@ -23,8 +23,8 @@ prometheus端点暴露了被Prometheus服务器抓取的指标数据
 注：无特别需求，不需要增加版本号。
 修改项目配置文件application.yaml
 暴露metric地址给prometheus（必选）
-在management.endpoints.web.exposure.include 配置项中加入prometheus, metrics两项(其他include选项自己决定是否添加）。
-[prometheus endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.export.prometheus)
+在management.endpoints.web.exposure.include 配置项中加入prometheus, metrics两项(其他include选项自己决定是否添加）。<br>
+[prometheus endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.export.prometheus)<br>
 yaml格式示例如下
 ```YMAL
 management:
@@ -64,11 +64,11 @@ management:
     tags:
       application: ${spring.application.name}
 ```
- 添加自定义指标（可选）
-参考[自定义指标](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.registering-custom)
-检查指标是否暴露成功
-启动SpringBoot服务（默认服务端口是9090），在终端中输入以下命令查看应用暴露的监控指标：
-A 聚石塔容器内
+ 添加自定义指标（可选）<br>
+参考[自定义指标](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.registering-custom)<br>
+检查指标是否暴露成功<br>
+启动SpringBoot服务（默认服务端口是9090），在终端中输入以下命令查看应用暴露的监控指标：<br>
+A 聚石塔容器内<br>
 prometheus metric格式：
 ```Bash
 curl -i -X GET  'http://localhost:9090/actuator/prometheus'
@@ -81,7 +81,7 @@ curl -i -X GET  'http://localhost:9090/actuator/metrics'
 ```
 返回如下图所示
 ![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img1.png)
-B 本地开发环境
+B 本地开发环境<br>
 prometheus metric格式：
 ```Bash
 curl -i -X GET  'http://localhost:8080/actuator/prometheus'
@@ -113,7 +113,9 @@ curl -i -X GET  'http://localhost:8080/actuator/metrics'
 指标查询
 进入grafana https://grafana.xxx.com
 选择 ·explore·
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img3.png)
 选择数据源 `thanos`
 输入指标 ·topk(10,tomcat_connections_current_connections) ·， 查看结果：
+![](https://github.com/liyy20/Prometheus-Note/blob/main/img/img4.png)
 
 
